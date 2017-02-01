@@ -7,7 +7,8 @@ import re
 import sys
 
 # replace /path/to/bing-desktop-wallpaper-changers with the actual path to the bing-desktop-wallpaper-changer folder
-path_to_Bing_Wallpapers="/path/to/bing-desktop-wallpaper-changer"
+#path_to_Bing_Wallpapers="/path/to/bing-desktop-wallpaper-changer"
+path_to_Bing_Wallpapers="/home/paul/informatik/linux/bing-desktop-wallpaper-changer-mine"
 
 try:  # try python 3 import
     from urllib.request import urlopen
@@ -374,14 +375,14 @@ def main():
         elif os.path.samefile(get_current_background_uri(), image_path):
             summary = 'Bing Wallpaper unchanged'
             body = ('%s already exists in Wallpaper directory' %
-                    image_metadata.find("copyright").text
+                    image_metadata.find("copyright").text)
         
         else:
             change_background(image_path)
             change_screensaver(image_path)
             summary = 'Wallpaper changed to current Bing wallpaper'
             body = ('%s already exists in Wallpaper directory' %
-                    image_metadata.find("copyright").text
+                    image_metadata.find("copyright").text)
         check_limit()
         
     except Exception as err:
